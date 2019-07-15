@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  root 'bbs#index'
+  get 'home/index'
+
+  # root 'bbs#index'
+  root 'home#index'
   post '/write' => 'bbs#write'
   post '/comment' => 'bbs#comment'
   devise_for :users
