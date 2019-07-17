@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
   # root 'bbs#index'
   root 'home#index'
-  post '/write' => 'bbs#write'
-  post '/comment' => 'bbs#comment'
+  get '/bbs' => 'bbs#index'
+  post 'bbs//write' => 'bbs#write'
+  post 'bbs//comment' => 'bbs#comment'
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
