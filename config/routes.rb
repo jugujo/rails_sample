@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
   # root 'bbs#index'
   root 'home#index'
+
+  get '/product' => 'product#index'
+
+  
   get '/bbs' => 'bbs#index'
   post 'bbs//write' => 'bbs#write'
   post 'bbs//comment' => 'bbs#comment'
