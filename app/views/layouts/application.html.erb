@@ -38,10 +38,11 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="/">HOME</a>
-          <a class="navbar-brand" href="/product">PRODUCT</a>
-          <a class="navbar-brand" href="/bbs">BBS</a>
+
 
           <% if user_signed_in? %>
+            <a class="navbar-brand" href="/product">PRODUCT</a>
+            <a class="navbar-brand" href="/bbs">BBS</a>
             <a class="navbar-brand" href="/users/sign_out" data-method="delete">Logout</a>
           <% else %>
             <a class="navbar-brand" href="/users/sign_in">Login</a>
@@ -67,6 +68,8 @@
       </div>
     </nav>
 
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
