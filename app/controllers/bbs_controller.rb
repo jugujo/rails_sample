@@ -7,7 +7,7 @@ class BbsController < ApplicationController
     
     def write
         Board.create(user_id: current_user.id, content: params[:content])
-        redirect_to :root
+        redirect_to :bbs
     end
     
     def comment
