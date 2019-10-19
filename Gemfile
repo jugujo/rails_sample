@@ -4,6 +4,7 @@ gem 'ruby-debug-ide'
 gem 'debase'
 
 gem 'bootstrap-sass', '~> 3.4.1'
+gem 'bootstrap', '~> 4.0.0'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'

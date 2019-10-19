@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/product' => 'product#index'
   get '/product/new' => 'product#new'
   post '/product' => 'product#create'
-  post '/product/write' => 'product#write'
+#  post '/product/write' => 'product#write'
 
   get '/bbs' => 'bbs#index'
   post '/bbs/write' => 'bbs#write'
