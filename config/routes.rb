@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   # root 'bbs#index'
   root 'home#index'
 
-  get '/product' => 'product#index'
-  get '/product/new' => 'product#new'
-  post '/product' => 'product#create'
+  get '/products' => 'products#index'
+  get '/products/new' => 'products#new'
+  post '/products' => 'products#create'
+  #resources :products, only: [:index, :new, :create, :show, :edit, :update]
 #  post '/product/write' => 'product#write'
 
   get '/bbs' => 'bbs#index'

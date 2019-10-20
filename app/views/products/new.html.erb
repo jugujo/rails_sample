@@ -4,7 +4,7 @@
     <a href="/product" class="btn btn-outline-dark">製品一覧</a>
   </div>
 </div>
-<%= form_for @product,　:url => { :controller => :product, :action => :create } do |f| %>
+<%= form_for @product do |f| %>
   <div class="form-group">
     <%= f.label :name, '名前' %>
     <%= f.text_field :name, class: 'form-control' %>
