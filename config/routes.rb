@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   # post '/products' => 'products#create'
   # get '/products/:id' => 'products#show'
 
-  resources :products, only: [:index, :new, :create, :show, :edit, :update]
+  # resources :products, only: [:index, :new, :create, :show, :edit, :update]
+  resources :products
 #  post '/product/write' => 'product#write'
 
   get '/bbs' => 'bbs#index'

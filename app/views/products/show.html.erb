@@ -1,7 +1,8 @@
 <div class="d-flex align-items-center mt-4 mb-4">
   <div class="ml-auto product__linkBox">
-    <a href="/products" class="btn btn-outline-dark">一覧</a>
-    <a href="/products" class="btn btn-outline-dark">編集</a>
+    <%= link_to '製品一覧', products_path, class:"btn btn-outline-primary" %>
+    <%= link_to '編集', edit_product_path(@product), class:"btn btn-outline-primary" %>
+    <%= link_to '削除', @product, class: 'btn btn-outline-primary', method: :delete %>
   </div>
 </div>
 

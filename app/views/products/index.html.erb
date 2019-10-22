@@ -23,17 +23,21 @@
       <th>説明</th>
       <th>作成日時</th>
       <th>更新日時</th>
+      <th></th>
+      <%# <th></th> %>
     </tr>
   </thead>
   <tbody>
     <% @products.each do |product| %>
-      <tr>
+      <tr onclick="location.href='<%= product_path(product) %>'">
         <td><%= product.id %></td>
         <td><%= product.name %></td>
         <td><%= product.price %></td>
         <td><%= product.description %></td>
-        <td><%= product.created_at %></td>
+        <td><%= product.created_at.to_s(:datetime_jp) %></td>
         <td><%= product.updated_at %></td>
+        <td><%= link_to '削除', product, class: 'btn btn-outline-dark', method: :delete %></td>
+        <!-- <td><%= link_to '詳細', product, class:"btn btn-outline-secondary" %></td> -->
       </tr>
     <% end %>
   </tbody>
