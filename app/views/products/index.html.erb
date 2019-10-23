@@ -14,6 +14,11 @@
     <%= link_to '新規作成', new_product_path, class:"btn btn-outline-primary" %>
   </div>
 </div>
+
+<% if flash[:notice] %>
+  <div class="alert alert-danger"><%= flash[:notice] %></div>
+<% end %>
+
 <table class="table table-hover product__table">
   <thead class="table-primary">
     <tr>

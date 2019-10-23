@@ -7,14 +7,30 @@ class ProductsController < ApplicationController
     end
 
     def new
+        STDOUT.write("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa") 
+        # STDOUT.write(product) 
+        STDOUT.write(@product) 
+        STDOUT.write("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb") 
+
         @product = Product.new
     end
 
     def create
         # Product.create(name: params[:name], price: params[:price], description: params[:description])
         # redirect_to :products
-        product = Product.create(product_params)
-        redirect_to product
+
+        # product = Product.create(product_params)
+        # redirect_to product
+        @product = Product.new(product_params)
+        if @product.save
+          flash[:notice] = "製品「#{@product.name}」を登録しました"
+          redirect_to product
+        else
+          redirect_to :back, flash: {
+            product: @product,
+            error_messages: @product.errors.full_messages
+          }
+        end
     end
 
     def show
@@ -27,16 +43,26 @@ class ProductsController < ApplicationController
 
     def update
         # product = Product.find(params[:id])
-        @product.update(product_params)
+        # @product.update(product_params)
+        # redirect_to @product
 
-        redirect_to @product
+        if @product.update(product_params)
+            flash[:notice] = "製品「#{@product.name}」を編集しました"
+            redirect_to product
+        else
+            redirect_to :back, flash: {
+              product: @product,
+              error_messages: @product.errors.full_messages
+            }
+        end
     end
 
     def destroy
         # product = Product.find(params[:id])
         @product.delete
 
-        redirect_to products_path
+        # redirect_to products_path
+        redirect_to products_path, flash: { notice: "製品「#{@product.name}」が削除されました" }
     end
 
     private 
