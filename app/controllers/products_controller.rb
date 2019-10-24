@@ -7,6 +7,12 @@ class ProductsController < ApplicationController
     end
 
     def new
+        if product_params
+            STDOUT .write("yyyyyyyyyyyyyyyyyyyyyy") 
+        else
+            STDOUT .write("nnnnnnnnnnnnnnnnnnnnnn") 
+        end
+
         STDOUT.write("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa") 
         # STDOUT.write(product) 
         STDOUT.write(@product) 
@@ -27,7 +33,7 @@ class ProductsController < ApplicationController
           redirect_to product
         else
           redirect_to :back, flash: {
-            product: @product,
+            product: @product, 
             error_messages: @product.errors.full_messages
           }
         end
