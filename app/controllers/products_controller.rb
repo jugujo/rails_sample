@@ -2,20 +2,12 @@ class ProductsController < ApplicationController
     before_action :set_target_product, only: %i[show edit update destroy]
 
     def index
-        @products = Product.all.reverse
+        # @products = Product.all.reverse
+        @products = Product.page(params[:page]).per(2)
         #@boards = Board.where(user_id: current_user.id)
     end
 
     def new
-        if product_params
-            STDOUT .write("yyyyyyyyyyyyyyyyyyyyyy") 
-        else
-            STDOUT .write("nnnnnnnnnnnnnnnnnnnnnn") 
-        end
-
-        STDOUT.write("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa") 
-        # STDOUT.write(product) 
-        STDOUT.write(@product) 
         STDOUT.write("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb") 
 
         @product = Product.new
@@ -30,7 +22,7 @@ class ProductsController < ApplicationController
         @product = Product.new(product_params)
         if @product.save
           flash[:notice] = "製品「#{@product.name}」を登録しました"
-          redirect_to product
+          redirect_to @product
         else
           redirect_to :back, flash: {
             product: @product, 
@@ -54,7 +46,7 @@ class ProductsController < ApplicationController
 
         if @product.update(product_params)
             flash[:notice] = "製品「#{@product.name}」を編集しました"
-            redirect_to product
+            redirect_to @product
         else
             redirect_to :back, flash: {
               product: @product,

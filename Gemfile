@@ -9,6 +9,8 @@ gem 'bootstrap', '~> 4.3.1'
 #gem 'mini_racer', '~> 0.2.4'
 gem 'devise'
 
+gem 'kaminari'
+
 gem 'wdm'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
