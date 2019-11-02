@@ -60,7 +60,7 @@ class ProductsController < ApplicationController
         @product.delete
 
         # redirect_to products_path
-        redirect_to products_path, flash: { notice: "製品「#{@product.name}」が削除されました" }
+        redirect_to products_path, flash: { notice_alert: "製品「#{@product.name}」が削除されました" }
     end
 
     private 
