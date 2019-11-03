@@ -10,6 +10,15 @@ class ProductsController < ApplicationController
     def new
         STDOUT.write("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb") 
 
+        catgories = Category.all
+        @catgories_for_options = Hash.new
+        @catgories_for_options.store("none", "")
+        catgories.each do |category|
+          @catgories_for_options.store(category.name, category.id)
+        end
+
+        @category_id = "1"
+
         @product = Product.new
     end
 
